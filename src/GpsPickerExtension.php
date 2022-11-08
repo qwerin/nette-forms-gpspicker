@@ -47,7 +47,7 @@ class GpsPickerExtension extends DI\CompilerExtension
 			throw new UnsupportedTypeException("Driver '$config[driver]' doesn't support '$type' type.");
 		}
 
-		$initialize = $class->methods['initialize'];
+		$initialize = $class->getMethods()['initialize'];
 		$initialize->addBody('VojtechDobes\NetteForms\GpsPositionPicker::register(?, ?);', array(
 			$config['driver'],
 			$type,
